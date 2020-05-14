@@ -1,7 +1,5 @@
 #include <iostream>
 #include <cstring>
-#include <vector>
-#include <string>
 #include "Date.h"
 
 void Date::copyDate(Date &other)
