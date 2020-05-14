@@ -25,6 +25,21 @@ bool Date::isValid(int day, int month, int year)
     
 }
 
+void Date::setDay(int _day)
+{
+    day = _day;
+}
+
+void Date::setMonth(int _month)
+{
+    month = _month;
+}
+
+void Date::setYear(int _year)
+{
+    year = _year;
+}
+
 int Date::getDay()
 {
     return day;
