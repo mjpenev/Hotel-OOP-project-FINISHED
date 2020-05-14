@@ -10,6 +10,9 @@ class Date
         void copyDate(Date &other);
     public:
         bool isValid(int day, int month, int year);
+        void setDay(int _day);
+        void setMonth(int _month);
+        void setYear(int _year);
         int getDay();
         int getMonth();
         int getYear();
