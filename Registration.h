@@ -11,9 +11,6 @@ class Registration
         char *note;
         void copyRegistration(Registration &other);
     public:
-        void setStartDate(Date _startDate);
-        void setEndDate(Date _endDate);
-        void setNote(const char *_note);
 
         Date getStartDate();
         Date getEndDate();

@@ -13,6 +13,7 @@ class workFile
     private:
         fstream file;
         string fileName;
+        string fileInfo;
         vector <string> words;
         void copy(workFile &other);
     public:
@@ -24,7 +25,9 @@ class workFile
         void _exit();
         void _readFile();
         void _writeFile();
+        void _fileReservation();
         void _insertCommand(string word);
+        int getSize();
         string _checkWord(int num);
         void _clearVector();
         workFile() = default;

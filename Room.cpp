@@ -1,4 +1,7 @@
 #include "Room.h"
+#include "Date.h"
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -8,6 +11,21 @@ void Room::copyRoom(Room &other)
     beds = other.beds;
     guests = other.guests;
     isFree = other.isFree;
+    startDate = other.startDate;
+    endDate = other.endDate;
+    note = other.note;
+}
+void Room::setStartDate(Date _startDate)
+{
+    startDate = _startDate;
+}
+void Room::setEndDate(Date _endDate)
+{
+    endDate = _endDate;
+}
+void Room::setNote(string _note)
+{
+    note = _note;
 }
 void Room::setRoomNumber(int _roomNumber)
 {
@@ -21,13 +39,25 @@ void Room::setGuests(int _guests)
 {
     guests = _guests;
 }
-void Room::freeRoom()
+void Room::setAvailability(bool _isFree)
 {
-    isFree = true;
+    isFree = _isFree;
 }
-void Room::fullRoom()
+std::string Room::getNote()
 {
-    isFree = false;
+    return note;
+}
+Date& Room::getFromDate()
+{
+    return startDate;
+}
+Date& Room::getToDate()
+{
+    return endDate;
+}
+bool Room::getAvailabilty()
+{
+    return isFree;
 }
 int Room::getRoomNumber()
 {
@@ -41,6 +71,23 @@ int Room::getGuests()
 {
     return guests;
 }
+void Room::printRoom()
+{
+    cout << "============================================" << endl;
+    cout << "Room number: " << getRoomNumber() << endl;
+    cout << "Reserved from " << startDate.getDay() << '.' << startDate.getMonth() << '.' << startDate.getYear() << " to " << 
+    endDate.getDay() << '.' << endDate.getMonth() << '.' << endDate.getYear() << endl;
+    cout << "Note: " << note << endl;
+    cout << "Room has: " << beds << " beds" << endl;
+    cout << "Reserved for: " << guests << " guests" << endl;
+    cout << "Days: " << endDate - startDate << endl;
+    cout << "============================================" << endl;
+}
+
+void Room::printAvailable()
+{
+    cout << "Room number: " << roomNumber << " Status: available " << " beds: " << beds << endl;
+}
 
 Room::Room()
 {
@@ -48,13 +95,18 @@ Room::Room()
     beds = 0;
     guests = beds;
     isFree = true;
+
 }
-Room::Room(int _num, int _beds, int _guests, bool _isFree)
+Room::Room(int _num, int _beds, int _guests, bool _isFree, Date from, Date to, string _note)
 {
     roomNumber = _num;
     beds = _beds;
     guests = _guests;
     isFree = _isFree;
+    startDate = from;
+    endDate = to;
+    note = _note;
+
 }
 Room::Room(Room &other)
 {

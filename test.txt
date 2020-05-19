@@ -1,0 +1,13 @@
+Make reservation: Room number 39 from 2019-05-06 to 2019-05-13 Note Penevi |
+Make reservation: Room number 18 from 2020-07-15 to 2020-07-19 Note Dimitrovi |
+Make reservation: Room number 34 from 2020-10-06 to 2020-10-21 Note Petrovi |
+Make reservation: Room number 21 from 2021-11-06 to 2021-11-13 Note Yanakiev guests 1 |
+Make reservation: Room number 89 from 2023-03-01 to 2023-03-28 Note Ivanovi |
+Make reservation: Room number 58 from 2024-01-06 to 2024-02-01 Note Yordanovi |
+Make reservation: Room number 91 from 2020-12-06 to 2020-12-26 Note Kostadinovi |
+Make room unavailable: Room number 29 from 2020-08-06 to 2020-08-07 Note Room is under construction |
+Make reservation: Room number 24 from 2021-04-19 to 2021-04-24 Note Stoyanovi |
+Make reservation: Room number 68 from 2022-04-13 to 2022-04-17 Note Mister Martin guests 1 |
+Make reservation: Room number 73 from 2020-09-06 to 2020-09-13 Note Panteleevi |
+Make room unavailable: Room number 77 from 2012-09-06 to 2012-09-19 Note Room is under construction |
+Make room unavailable: Room number 35 from 2021-05-06 to 2021-05-18 Note Room is under construction *
