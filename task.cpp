@@ -42,14 +42,15 @@ int main()
         {
             s._close();
         }
-        /*else if(command == "save")
+        else if(command == "save")
         {
             s._save();
         }
         else if(s._checkWord(0) == "saveas")
         {
-            s._saveas();
-        }*/
+            string copyPath = s._checkWord(1);
+            s._saveas(copyPath);
+        }
         else if (command == "help")
         {
             s._help();
@@ -143,9 +144,16 @@ int main()
                 }
                 
             }
+            if (currFromDate > currToDate)
+            {
+                successful = false;
+                cout << "The first date must be before the second!" << endl;
+            }
+            
             if (successful)
             {
                 cout << "successfuly made registration!" << endl;
+                s.writeInString("Make reservation: Room number " + s._checkWord(1) + " from " + s._checkWord(2) + " to " + s._checkWord(3) + " " + noteRoom + " | \n");
                 h.addRegistration(currRoom);
             }
 
@@ -225,11 +233,27 @@ int main()
         }
         else if(s._checkWord(0) == "find")
         {
-            h.printAllRegistrations();
+            string roomBeds = s._checkWord(1);
+            string startD = s._checkWord(2);
+            string endD = s._checkWord(3);
+            istringstream readNum(roomBeds);
+            int num;
+            vector <int> pushNum;
+            while(readNum >> num)
+            {
+                pushNum.push_back(num);
+            }
+            cout << "We found room just for you: " << endl;
+            cout << "====================================" << endl;
+            cout << "Room number " << h.findRoom(num).getRoomNumber() << " with " << h.findRoom(num).getBeds() << " bed/s!" << endl;
+            cout << "====================================" << endl;
+            cout << "Free from " << startD << " to " << endD << endl;
+            cout << "Type checkin, room num, dates and note to reserve!" << endl;
+
         }   
         else if(s._checkWord(0) == "find!")
         {
-            cout << "find! yeah" << endl;
+            // currently empty
         }
         else if(s._checkWord(0) == "unavailable") // function is almost same as checkin
         {

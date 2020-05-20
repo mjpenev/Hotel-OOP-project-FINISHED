@@ -139,11 +139,12 @@ void workFile::_fileReservation()
             int roomNUM;
             int guests = nums[0];
             currRoom.setGuests(guests);
+            nums.clear();
         }
         
         if (fileWords[i] == "|")
         {
-            currRoom.printRoom();
+           // h.addRegistration(currRoom);
         }
 
     }
@@ -151,8 +152,26 @@ void workFile::_fileReservation()
 
 }
 
+void workFile::_updateFile(std::string _Address)
+{
+    ofstream writeInFile(_Address);
+    writeInFile << toWrite;
+    writeInFile << fileInfo << "*" << endl;
+}
+
+void workFile::writeInString(string anotherString)
+{
+    toWrite += anotherString;
+}
+
+string workFile::getAddress()
+{
+    return address;
+}
+
 void workFile::_open(string Address) 
 {
+    address = Address;
     file.open(Address);
     string backwords;
 
@@ -198,22 +217,19 @@ void workFile::_close()
         std::cout << "No opened file!" << endl;
     }
 }
-/*void workFile::_save() 
+void workFile::_save() 
 {
-    if (this->file.is_open())
-    {
-        file.close();
-        file.open(fileName, std::ios::in | std::ios::out | std::ios::trunc);
-        _writeFile();
-    }
+    _updateFile(address);
+    cout << "Successfully made changes to file!" << endl;
 }
-void workFile::_saveas() 
+void workFile::_saveas(string path) 
 {
-    fileName = words[1];
-    ofstream newFile(fileName);
-    _writeFile(newFile);
+    address = path;
+    ofstream newFile(address);
+    _updateFile(address);
+    cout << "Successfully made new file and added all registrations! " << endl;
 
-}*/
+}
 void workFile::_help()
 {
     std::cout << "The following commands are supported:" << std::endl;
@@ -233,10 +249,6 @@ void workFile::_exit()
     
 }
 
-/*void workFile::_writeFile() 
-{
-
-}*/
 void workFile::_insertCommand(string word)
 {
     words.push_back(word);

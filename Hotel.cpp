@@ -92,25 +92,6 @@ Date& Hotel::getEndDateI(int i)
     return rooms[i].getToDate();
 }
 
-void Hotel::printAllRegistrations()
-{
-    cout << "CURRENT UNAVAILABLE ROOMS: " << endl;
-    for (int i = 0; i < size; i++)
-    {
-        cout << "============================================" << endl;
-        cout << "Room number: " << rooms[i].getRoomNumber() << endl;
-        cout << "Reserved from " << (rooms[i].getFromDate()).getDay() << '.' << (rooms[i].getFromDate()).getMonth() << '.' << (rooms[i].getFromDate()).getYear() << " to " << 
-        (rooms[i].getToDate()).getDay() << '.' << (rooms[i].getToDate()).getMonth() << '.' << (rooms[i].getToDate()).getYear() << endl;
-        cout << "By: " << rooms[i].getNote() << endl;
-        cout << "Room has: " << rooms[i].getBeds() << " beds" << endl;
-        cout << "Reserved for: " << rooms[i].getGuests() << " guests" << endl;
-        cout << "============================================" << endl;
-        cout << endl;
-    }
-    
-}
-
-
 void Hotel::isRoomAvailable(Date onThisDate)
 {
     for (int i = 0; i < size; i++)
@@ -124,7 +105,31 @@ void Hotel::isRoomAvailable(Date onThisDate)
     }
     
 }
+Room Hotel::findRoom(int beds)
+{
+    for (int i = 0; i < Rooms; i++)
+    {
+        if (availableRooms[i].getBeds() >= beds)
+        {
+            bool flag = true;
+            for (int j = 0; j < size; j++)
+            {
+                if (availableRooms[i].getRoomNumber() == rooms[i].getRoomNumber())
+                {
+                    flag = false;
+                }
 
+            }
+            if (flag)
+            {
+                return availableRooms[i];
+            }
+            
+        }
+        
+    }
+    
+}
 void Hotel::printAvailableRooms()
 {
     for (int i = 0; i < Rooms; i++)

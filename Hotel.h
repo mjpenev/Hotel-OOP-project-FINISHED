@@ -16,10 +16,11 @@ class Hotel
 
     public:
         void generateHotel();
+        void Print();
         void addRegistration(Room room);
         void deleteRegistration(int numOfRoom);
-        void printAllRegistrations();
         void printAvailableRooms();
+        Room findRoom(int beds);
         int getRegisterSize();
         int getSizeOfHotel();
         void isRoomAvailable(Date onThisDate);
