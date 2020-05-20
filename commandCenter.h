@@ -5,6 +5,7 @@
 #include <string>
 #include <fstream>
 #include <vector>
+#include "Hotel.h"
 
 using namespace std;
 
@@ -19,13 +20,13 @@ class workFile
         vector <string> words;
         void copy(workFile &other);
     public:
-        void _open(string Adress);
+        void _open(Hotel &h, string Adress);
         void _close();
         void _save();
         void _saveas(string path);
         void _help();
         void _exit();
-        void _fileReservation();
+        void _fileReservation(Hotel &h);
         void writeInString(string anotherString);
         string getAddress();
         void _updateFile(string _Address);

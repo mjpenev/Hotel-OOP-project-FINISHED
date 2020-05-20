@@ -7,14 +7,13 @@
 #include "Date.h"
 #include "Hotel.h"
 
-void workFile::_fileReservation()
+void workFile::_fileReservation(Hotel &h)
 {
     vector <string> fileWords;
     istringstream readWords(fileInfo);
     string word;
     Room currRoom;
     Date d;
-    Hotel h;
     string num;
     while(readWords >> word)
     {
@@ -144,7 +143,7 @@ void workFile::_fileReservation()
         
         if (fileWords[i] == "|")
         {
-           // h.addRegistration(currRoom);
+           h.addRegistration(currRoom);
         }
 
     }
@@ -169,7 +168,7 @@ string workFile::getAddress()
     return address;
 }
 
-void workFile::_open(string Address) 
+void workFile::_open(Hotel &h, string Address) 
 {
     address = Address;
     file.open(Address);
@@ -196,7 +195,7 @@ void workFile::_open(string Address)
         std::cout << "Successfully opened" << fileName << std::endl; 
         ifstream myFile(Address);
         getline(myFile, fileInfo, '*');
-        _fileReservation();
+        _fileReservation(h);
 
     }
     else

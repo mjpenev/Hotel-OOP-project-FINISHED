@@ -36,7 +36,7 @@ int main()
         if (s._checkWord(0) == "open")
         {
             string address = s._checkWord(1);
-            s._open(address);
+            s._open(h, address);
         }
         else if(command == "close")
         {
@@ -344,6 +344,7 @@ int main()
             if (successful)
             {
                 cout << "Successfully updated room status to unavailable!" << endl;
+                s.writeInString("Make room unavailable: Room number " + s._checkWord(1) + " from " + s._checkWord(2) + " to " + s._checkWord(3) + " " + noteRoom + " | \n");
                 h.addRegistration(currRoom);
             }
         }

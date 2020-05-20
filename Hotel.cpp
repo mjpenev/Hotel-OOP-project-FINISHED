@@ -51,6 +51,7 @@ int Hotel::getAvBedsI(int i)
 {
     return availableRooms[i].getBeds();
 }
+
 void Hotel::addRegistration(Room room)
 {
     Room* new_arr = new Room[size + 1];
@@ -59,10 +60,12 @@ void Hotel::addRegistration(Room room)
         new_arr[i] = rooms[i];
     }
     size++;
+    delete[] rooms;
     rooms = new_arr;
     rooms[size - 1] = room;
 
 }
+
 void Hotel::deleteRegistration(int numOfRoom)
 {
     Room* new_arr = new Room[size + 1];
@@ -105,6 +108,7 @@ void Hotel::isRoomAvailable(Date onThisDate)
     }
     
 }
+
 Room Hotel::findRoom(int beds)
 {
     for (int i = 0; i < Rooms; i++)

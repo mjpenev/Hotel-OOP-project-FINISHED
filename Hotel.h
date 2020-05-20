@@ -16,7 +16,6 @@ class Hotel
 
     public:
         void generateHotel();
-        void Print();
         void addRegistration(Room room);
         void deleteRegistration(int numOfRoom);
         void printAvailableRooms();
