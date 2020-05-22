@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstring>
 #include <string>
+#include <ctime>
 #include "commandCenter.h"
 #include "Hotel.h"
 #include "Room.h"
@@ -157,6 +158,17 @@ int main()
                 h.addRegistration(currRoom);
             }
 
+        }
+        else if(command == "availability")
+        {
+            time_t t = std::time(0);
+            std::tm *now = std::localtime(&t);
+            Date currDate;
+            currDate.setYear(now->tm_year + 1900);
+            currDate.setMonth(now->tm_mon + 1);
+            currDate.setDay(now->tm_mday);
+            h.isRoomAvailable(currDate);
+            h.printAvailableRooms();
         }
         else if (s._checkWord(0) == "availability")
         {

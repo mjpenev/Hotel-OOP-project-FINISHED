@@ -34,6 +34,7 @@ void workFile::_fileReservation(Hotel &h)
             int roomNUM;
             roomNUM = nums[0];
             currRoom.setBeds(h.getAvBedsI(roomNUM));
+            currRoom.setGuests(h.getAvBedsI(roomNUM));
             
             currRoom.setRoomNumber(roomNUM);
             nums.clear();
