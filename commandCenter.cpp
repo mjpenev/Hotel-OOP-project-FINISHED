@@ -201,7 +201,7 @@ void workFile::_open(Hotel &h, string Address)
     }
     else
     {
-        std::cout << "A problem occurred in opening file!" << std::endl;
+        cout << "A problem occurred in opening file!" << endl;
     }
     
 }
@@ -210,11 +210,11 @@ void workFile::_close()
     if (this->file.is_open())
     {
         this->file.close();
-        std::cout << "Successfully closed" << fileName << endl;
+        cout << "Successfully closed" << fileName << endl;
     }
     else
     {
-        std::cout << "No opened file!" << endl;
+        cout << "No opened file!" << endl;
     }
 }
 void workFile::_save() 
@@ -232,12 +232,22 @@ void workFile::_saveas(string path)
 }
 void workFile::_help()
 {
-    std::cout << "The following commands are supported:" << std::endl;
-    std::cout << "open <file>         opens <file>" << std::endl;
-    std::cout << "close               closes currently opened file" << std::endl;
-    std::cout << "save                saves the currently opened file" << std::endl;
-    std::cout << "saveas <file>       saves the currently opened file in <file>" << std::endl;
-    std::cout << "help                prints this information'" << std::endl;
+    cout << "The following commands are supported:" << endl;
+    cout << "open <file>         opens <file>" << endl;
+    cout << "close               closes currently opened file" << endl;
+    cout << "save                saves the currently opened file" << endl;
+    cout << "saveas <file>       saves the currently opened file in <file>" << endl;
+    cout << "help                prints this information'" << endl;
+    cout << endl;
+    cout << "Hotel booking commands: " << endl;
+    cout << "checkin <room> <from> <to> <note> <guests> (not required)     Makes a reservation in the hotel" << endl;
+    cout << "availability <date> (not required)                            shows available rooms on a date (if date misses takes the current date)" << endl;
+    cout << "checkout <room>                                               Deletes reservation" << endl;
+    cout << "report <from> <to>                                            shows all reservations in a period" << endl;
+    cout << "find <beds> <from> <to>                                       finds a room with <beds> or more, available in given period" << endl;
+    cout << "find! <beds> <from> <to>                                      finds a room for special guest with <beds> in given period" << endl;
+    cout << "unvailable <room> <from> <to> <note>                          Makes a room unavailable for a reason which is <note> " << endl;
+    cout << "exit                                                          Ends program!" << endl;
 }
 void workFile::_exit()
 {
