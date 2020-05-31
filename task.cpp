@@ -162,7 +162,7 @@ int main()
         else if(command == "availability")
         {
             time_t t = std::time(0);
-            std::tm *now = std::localtime(&t);
+            std::tm *now = std::localtime(&t);   // algorithm for local time from Internet
             Date currDate;
             currDate.setYear(now->tm_year + 1900);
             currDate.setMonth(now->tm_mon + 1);
